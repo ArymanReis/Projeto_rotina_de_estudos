@@ -144,6 +144,7 @@ form {
     font-weight: 300;
     color: #ffffff63;
     text-transform: uppercase;
+    text-align: center;
 }
 
 ::-webkit-calendar-picker-indicator {
@@ -284,7 +285,9 @@ form {
     height: 200px;
     justify-content: center;
     align-items: center;
-    stroke-dasharray: 300;
+    stroke-dasharray: 336;
+    stroke-dashoffset: 300;
+    transition: stroke-dashoffset 0.08s;
 }
 
 #graphic-base {

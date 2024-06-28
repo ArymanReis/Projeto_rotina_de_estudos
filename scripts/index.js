@@ -3,8 +3,11 @@ const nameMather = document.querySelector("#mather");
 const startDate = document.querySelector("#date-start");
 const endDate = document.querySelector("#date-conclusion");
 
+let count = 0;
 
 const startBtn = document.querySelector("#start");
+const addBtnCompleted = document.querySelector("#to-add");
+const subtractBtnCompleted = document.querySelector("#subtract");
 
 function summary() {
 
@@ -25,13 +28,13 @@ function summary() {
 
 };
 
-let count = 0;
 
 function numberClasse() {
 
     let numberOfClasses = Number(numberMather.value);
 
     const fragmentClasse = document.createDocumentFragment();
+
 
     while(count < numberOfClasses) {
 
@@ -46,6 +49,7 @@ function numberClasse() {
     }
 
     document.querySelector(".conclusion").appendChild(fragmentClasse);
+
 };
 
 
@@ -56,6 +60,26 @@ startBtn.addEventListener("click", (e) => {
     numberClasse();
 
     summary();
+
+});
+
+addBtnCompleted.addEventListener("click", () => {
+
+    const circleGraphic = document.querySelector("#graphic-progress");
+    const numberCompleted = count;
+    
+    numberMather = circleGraphic;
+
+    document.querySelector("#goals-completed").innerHTML = count++;
+    document.querySelector("#data-graphic").innerHTML = numberCompleted + "%";
+
+    circleGraphic.style.strokeDashoffset = 336 - (300 * numberCompleted) / 100; 
+
+});
+
+subtractBtnCompleted.addEventListener("click", () => {
+
+    document.querySelector("#goals-completed").innerHTML = count--;
 
 });
 
