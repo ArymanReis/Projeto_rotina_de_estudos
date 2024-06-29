@@ -2,8 +2,11 @@ let numberMather = document.querySelector("#number-mather");
 const nameMather = document.querySelector("#mather");
 const startDate = document.querySelector("#date-start");
 const endDate = document.querySelector("#date-conclusion");
+const completedNumber = document.querySelector("#goals-completed");
+const dataGraphic = document.querySelector("#data-graphic")
 
 let count = 0;
+let anotherCount = 0;
 
 const startBtn = document.querySelector("#start");
 const addBtnCompleted = document.querySelector("#to-add");
@@ -52,6 +55,25 @@ function numberClasse() {
 
 };
 
+function updateClasses() {
+
+    let upNumberClasses = Number(numberMather.value);
+
+    const studyGoal = document.querySelector("#study-goal");
+
+    const newStudyGoal = document.createElement("p");
+    
+    newStudyGoal.appendChild(document.createTextNode(upNumberClasses));
+
+    studyGoal.appendChild(newStudyGoal);
+
+}
+
+
+const updateCompletedNumber = () => {
+    completedNumber.innerHTML = anotherCount;
+};
+
 
 
 startBtn.addEventListener("click", (e) => {
@@ -61,25 +83,17 @@ startBtn.addEventListener("click", (e) => {
 
     summary();
 
+    updateClasses();
+
 });
 
 addBtnCompleted.addEventListener("click", () => {
-
-    const circleGraphic = document.querySelector("#graphic-progress");
-    const numberCompleted = count;
-    
-    numberMather = circleGraphic;
-
-    document.querySelector("#goals-completed").innerHTML = count++;
-    document.querySelector("#data-graphic").innerHTML = numberCompleted + "%";
-
-    circleGraphic.style.strokeDashoffset = 336 - (300 * numberCompleted) / 100; 
-
+    anotherCount++;
+    updateCompletedNumber();
 });
 
 subtractBtnCompleted.addEventListener("click", () => {
-
-    document.querySelector("#goals-completed").innerHTML = count--;
-
+    anotherCount--;
+    updateCompletedNumber();
 });
 

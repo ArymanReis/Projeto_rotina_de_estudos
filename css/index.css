@@ -108,21 +108,23 @@ form {
     padding: 10px;
     border: none;
     background-color: var(--gray);
+    color: var(--white);
     outline: none;
     width: 100%;
-}
-
-#mather
-#number-mather::placeholder {
-    font-size: 14px;
-}
-
-#mather, 
-#number-mather[type="number"] {
+    font-weight: 300;
     font-size: 16px;
-    color: var(--white);
-    outline:none;
+}
 
+#mather,
+#number-mather::placeholder {
+    font-size: 16px;
+}
+
+#mather:focus,
+#number-mather:focus,
+#date-start:focus,
+#date-conclusion:focus {
+    outline: 1px solid var(--yellow);
 }
 
 #number-mather::-webkit-outer-spin-button,
@@ -363,7 +365,8 @@ form {
     gap: 10px;
 }
 
-.change-values p {
+#study-goal,
+#goals-completed {
     font-size: 16px;
     font-weight: 600;
     color: var(--black);
